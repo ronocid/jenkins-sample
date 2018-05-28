@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+def code = 1
+def version = "1.0.0"
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -16,10 +18,35 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    flavorDimensions "app", "environment"
+    productFlavors {
+        FlavorA {
+            dimension "app"
+            minSdkVersion 20
+            applicationId 'com.test.flavora'
+            targetSdkVersion 27
+            versionCode code
+            versionName version
+        }
+        FlavorB {
+            dimension "app"
+            minSdkVersion 20
+            applicationId 'com.test.flavorb'
+            targetSdkVersion 27
+            versionCode code
+            versionName version
+        }
+        development {
+            dimension "environment"
+        }
+        production {
+            dimension "environment"
+        }
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     testImplementation 'junit:junit:4.12'
