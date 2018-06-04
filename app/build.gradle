@@ -43,6 +43,9 @@ android {
             dimension "environment"
         }
     }
+
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
 }
 
 dependencies {
