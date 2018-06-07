@@ -19,31 +19,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    flavorDimensions "app", "environment"
-    productFlavors {
-        FlavorA {
-            dimension "app"
-            minSdkVersion 20
-            applicationId 'com.test.flavora'
-            targetSdkVersion 27
-            versionCode code
-            versionName version
-        }
-        FlavorB {
-            dimension "app"
-            minSdkVersion 20
-            applicationId 'com.test.flavorb'
-            targetSdkVersion 27
-            versionCode code
-            versionName version
-        }
-        development {
-            dimension "environment"
-        }
-        production {
-            dimension "environment"
-        }
-    }
 }
 
 dependencies {
